@@ -1,0 +1,29 @@
+﻿@model List<AlbumDetailVM>
+
+@{ ViewData["Title"] = "Index";
+    Layout = null;}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="hero-slides-content text-center">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>FullName</th>
+                            <th>AlbumArtUrl</th>
+                            <th>GenreName</th>
+                            <th>Discount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <partial name="_AdminAlbumsTable" model="@Model" />
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

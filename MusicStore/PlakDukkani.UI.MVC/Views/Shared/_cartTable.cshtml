@@ -1,0 +1,20 @@
+﻿@model Cart
+@if (Model != null)
+{
+    @foreach (var item in Model.GetCartItems)
+    {
+    <tr>
+        <td>@item.Title</td>
+        <td>@item.Price</td>
+        <td><input onchange="CartUpdate(@item.ID, this.value)" type="number" value="@item.Quantity"     min="0" /></td>
+        <td>@item.Discount</td>
+        <td>
+            @item.SubTotal
+        </td>
+    </tr>
+    }
+}
+else
+{
+<h3>@ViewBag.Message</h3>
+}

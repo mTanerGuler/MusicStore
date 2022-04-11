@@ -1,0 +1,21 @@
+﻿@model List<AlbumDetailVM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-controller="admin" asp-action="create">Create</a>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.ID</td>
+        <td>@item.Title</td>
+        <td>@item.Price</td>
+        <td>@item.FullName</td>
+        <td>@item.AlbumArtUrl</td>
+        <td>@item.GenreName</td>
+        <td>@item.Discount</td>
+        <td><a asp-controller="admin" asp-action="edit" asp-route-id="@item.ID">Edit</a></td>
+        <td><a asp-controller="admin" asp-action="delete" asp-route-id="@item.ID">Delete</a></td>
+    </tr>
+}

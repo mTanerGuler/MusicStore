@@ -1,0 +1,62 @@
+﻿
+
+@model Cart
+
+@{ ViewData["Title"] = "Index"; }
+
+<!-- ##### Hero Area Start ##### -->
+<section class="hero-area">
+    <div class="hero-slides owl-carousel">
+
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide d-flex align-items-center justify-content-center">
+            <!-- Slide Img -->
+            <div class="slide-img bg-img" style="background-image: url(../../img/bg-img/bg-2.jpg);"></div>
+            <!-- Slide Content -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="hero-slides-content text-center">
+                            <table class="table table-dark">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Discount</th>
+                                        <th>SubTotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableData">
+                                    <partial name="_cartTable" model="@Model" />
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Hero Area End ##### -->
+
+@section scripts {
+    <script>
+        function CartUpdate(cartId, value) {
+
+            $.ajax({
+                type: "GET",
+                url: "/Cart/UpdateToCart",
+                data: {
+                    id: cartId,
+                    quantity: value
+                }
+            })
+                .done(function (cartTablePartial) {
+                    console.log("istek basarılı.");
+                    console.log(cartTablePartial);
+                    $("#tableData").html(cartTablePartial);
+                });
+        }
+    </script>
+}
