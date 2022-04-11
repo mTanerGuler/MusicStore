@@ -1,4 +1,4 @@
-# MusicStore
+# MusicStore-MVC-ASP.NET
  
 Web based music shop application created using .NetCore MVC with layered architecture. 
 
